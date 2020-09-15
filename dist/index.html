@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 py-3">
+            <input class="form-control" type="text" v-model="perfil" />
+            <button
+              class="btn btn-primary btn-block mt-3"
+              @click="getProfile()"
+            >
+              BUSCAR
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div v-for="foto in fotos" class="col-6">
+            <img :src="foto['node'].thumbnail_src" alt="" class="img-fluid" />
+            <p class="text-center lead">
+              LIKES:
+              <span class="font-weight-bold">
+                {{foto['node'].edge_liked_by.count}}</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
